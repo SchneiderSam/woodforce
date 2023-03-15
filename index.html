@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <title>Eurocode 5 Berechnung</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Eurocode 5 Berechnung - Beispiel</h1>
+    <form id="ec5-form">
+      <label for="length">Länge (m):</label>
+      <input type="number" id="length" value="4">
+      <label for="width">Breite (mm):</label>
+      <input type="number" id="width" value="100">
+      <label for="height">Höhe (mm):</label>
+      <input type="number" id="height" value="200">
+      <button type="submit">Berechnen</button>
+    </form>
+    <div id="result">
+      <h2>Ergebnisse:</h2>
+      <p>Maximal zulässige Biegespannung: <span id="max-stress">-</span> N/mm²</p>
+    </div>
+  </div>
+  <script src="scripts.js"></script>
+</body>
+</html>
