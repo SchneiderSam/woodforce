@@ -139,12 +139,12 @@ $("#eurocode-calculator").on("submit", function (event) {
   // Ergebnisse anzeigen (z. B. in einem HTML-Element)
   $("#result-container").html(`
   Biegemoment (M): ${result.biegemoment.toFixed(2)} kNm<br>
-  Schubkraft (V): ${result.schubkraft.toFixed(2)} kN<br>
-  Biegespannung (σ_m): ${stresses.biegespannung.toFixed(2)} kN/m²<br>
+  Schubkraft (V): ${result.schubkraft.toFixed(2)} kN<br><br>
+  Biegespannung (σ_m): ${stresses.biegespannung.toFixed(2)} kN/m² (${bendingStressPercentage.toFixed(2)}%)<br>
   <div class="progress">
     <div id="biegespannung-progress-bar" class="progress-bar" role="progressbar" style="width: ${bendingStressPercentage.toFixed(2)}%;" aria-valuenow="${bendingStressPercentage.toFixed(2)}" aria-valuemin="0" aria-valuemax="100"></div>
   </div>
-  Schubspannung (τ): ${stresses.schubspannung.toFixed(2)} kN/m²<br>
+  Schubspannung (τ): ${stresses.schubspannung.toFixed(2)} kN/m² (${shearStressPercentage.toFixed(2)}%)<br>
   <div class="progress">
     <div id="schubspannung-progress-bar" class="progress-bar" role="progressbar" style="width: ${shearStressPercentage.toFixed(2)}%;" aria-valuenow="${shearStressPercentage.toFixed(2)}" aria-valuemin="0" aria-valuemax="100"></div>
   </div>
