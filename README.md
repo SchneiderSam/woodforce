@@ -1,14 +1,37 @@
-# woodForce
+# WoodForce :evergreen_tree: :hammer_and_wrench:
 
-woodForce ist ein Open-Source-Projekt, das eine einfache Möglichkeit bietet, die erforderlichen Schnittkräfte und Spannungen für Holzkonstruktionen gemäß den Eurocode 5-Normen zu berechnen. Mit diesem Tool können Sie Biegemomente, Schubkräfte und Spannungen berechnen und überprüfen, ob Ihre Holzkonstruktion den Anforderungen der Eurocode 5-Normen entspricht.
+woodForce ist eine Open Source Software, die darauf abzielt, Holzstatik-Berechnungen nach (Eurocode 5) für jedermann zugänglich zu machen. Wir freuen uns über Beiträge von JavaScript-Programmierern, Statikern und allen, die daran interessiert sind, das Projekt zu verbessern. Mit diesem Tool können Sie Biegemomente, Schubkräfte und Spannungen berechnen und überprüfen, ob Ihre Holzkonstruktion den Anforderungen der Eurocode 5-Normen entspricht.
 
-## Verwendung
-Um den Eurocode 5 Calculator zu verwenden, müssen Sie das Repository klonen und die Datei index.html in Ihrem Webbrowser öffnen. Geben Sie die erforderlichen Eingabeparameter wie Schneelast, Verkehrslast, feste Last und Trägerlänge ein und klicken Sie auf die Schaltfläche "Berechnen", um die Schnittkräfte und Spannungen zu berechnen.
+:warning: **Wichtiger Hinweis:** Die WoodForce-Software befindet sich noch in der Entwicklungsphase und wird kontinuierlich verbessert. Sie ist derzeit **nicht für den professionellen oder produktiven Einsatz** empfohlen. Bitte verwenden Sie die bereitgestellten Berechnungen und Ergebnisse mit Vorsicht und ziehen Sie bei Bedarf einen qualifizierten Statiker oder Ingenieur zu Rate.
 
-Das Tool bietet auch eine visuelle Darstellung der berechneten Schnittkräfte und Spannungen sowie Fortschrittsbalken, die anzeigen, ob die berechneten Spannungen innerhalb der zulässigen Werte liegen. Wenn die berechneten Spannungen die zulässigen Werte überschreiten, wird die Hintergrundfarbe des Fortschrittsbalkens rot.
+## Features :star:
 
-## Beitrag
-Wir freuen uns über Beiträge von der Community, um dieses Projekt zu verbessern und zu erweitern. Wenn Sie eine Funktion hinzufügen oder ein Problem beheben möchten, können Sie gerne eine Pull-Anfrage einreichen.
+- Benutzerfreundliche Oberfläche zur Eingabe von Lasten und Abmessungen von Holzträgern
+- Berechnung von Biegemomenten, Schubkräften und Spannungen
+- Auswahl von Holzqualitäten und Festigkeitsklassen aus einer CSV-Datei
+- Visuelle Darstellung der berechneten Spannungswerte mit Progress-Bars
 
-## Lizenz
-Der Eurocode 5 Calculator ist unter der MIT-Lizenz veröffentlicht, die bedeutet, dass Sie ihn frei nutzen, kopieren und ändern können, solange Sie die ursprüngliche Lizenz beibehalten und den Urheberrechtsvermerk beifügen.
+## Installation :floppy_disk:
+
+1. Klonen Sie das Repository:
+2. Öffnen Sie die `index.html`-Datei in einem Webbrowser, um das Tool zu verwenden.
+
+## Mitmachen :raising_hand:
+
+Wir suchen aktiv nach Beiträgen von der Community, um dieses Projekt zu verbessern. Jede Hilfe ist willkommen, insbesondere von JavaScript-Programmierern und Statikern. Um beizutragen, können Sie:
+
+1. Das Repository forken und einen Pull-Request mit Ihren Änderungen erstellen
+2. Fehler melden oder Verbesserungsvorschläge im [Issue Tracker](https://github.com/SchneiderSam/woodforce/issues) einreichen
+3. Die Dokumentation erweitern oder übersetzen
+
+### Code of Conduct :handshake:
+
+Wir haben einen Verhaltenskodex, um eine freundliche und respektvolle Community zu fördern. Bitte lesen Sie und befolgen Sie unseren [Code of Conduct](CODE_OF_CONDUCT.md).
+
+## Lizenz :page_facing_up:
+
+WoodForce ist unter der [MIT-Lizenz](LICENSE) lizenziert. 
+
+## Kontakt :email:
+
+Für Fragen oder Anregungen können Sie uns  gerne eine E-Mail an `samuel@baubeaver.de` zuschicken.
