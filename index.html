@@ -11,10 +11,12 @@
 </head>
 <body>
 	<div class="container">
-		<h1 class="text-center mt-5">Eurocode Einfeldträger Rechner</h1>
+		<h1 class="text-center mt-5">woodforce</h1>
+    <p class="text-center mt-5">Open source-Eurode 5 Einfeldrechner. Weitere Infos hier <a href="https://github.com/SchneiderSam/woodforce">zu github</a></p>
 		<div class="row"> <!-- Hinzufügen des "row" Elements -->
 			<div class="col-md-4"> <!-- Linke Spalte -->
 				<form id="eurocode-calculator">
+          <b>Querschnitte & Festigkeitsklasse</b>
 					<div class="input-group input-group-sm mb-3">
 						<span class="input-group-text">Trägerbreite</span>
 						<input type="number" class="form-control" id="beamWidth" step="0.01" max="0.3" aria-label="Beam Width" aria-describedby="Beam Width" required>
@@ -30,6 +32,13 @@
 						<input type="number" class="form-control" id="beamLength" step="0.01" max="33" aria-label="Beam length" aria-describedby="Beam length" required>
 						<span class="input-group-text">m</span>
 					</div>
+          <div class="input-group input-group-sm mb-3">
+						<span class="input-group-text">Festigkeitsklasse</span>
+						<select class="form-select form-select-sm" id="woodQuality" required>
+							<option value="" disabled selected>Bitte auswählen ...</option>
+						</select>
+					</div>
+          <b>Belastung</b>
 					<div class="input-group input-group-sm mb-3">
 						<span class="input-group-text">Schneelast</span>
 						<input type="number" class="form-control" id="snowLoad" step="0.01" aria-label="Snow Load" aria-describedby="Snow Load" required>
@@ -44,13 +53,7 @@
 						<span class="input-group-text">Fixlast</span>
 						<input type="number" class="form-control" id="fixedLoad" step="0.01" aria-label="Traffic Load" aria-describedby="Traffic Load" required>
 						<span class="input-group-text">kN/m²</span>
-					</div>
-					<div class="input-group input-group-sm mb-3">
-						<span class="input-group-text">Festigkeitsklasse</span>
-						<select class="form-select form-select-sm" id="woodQuality" required>
-							<option value="" disabled selected>Bitte auswählen ...</option>
-						</select>
-					</div>								
+					</div>							
 					<button type="submit" class="btn btn-primary">Berechnen</button>
 					<div id="error-message-width" class="mt-2 text-danger" style="display: none;">Die Trägerbreite darf nicht mehr als 0,3 m betragen.</div>
 					<div id="error-message-height" class="mt-2 text-danger" style="display: none;">Die Trägerhöhe darf nicht mehr als 2 m betragen.</div>
