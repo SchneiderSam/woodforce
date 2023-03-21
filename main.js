@@ -127,8 +127,8 @@ $("#eurocode-calculator").on("submit", function (event) {
   const allowableStress = calculateAllowableStress(woodQuality);
 
   // Berechnung der Prozentwerte
-  const bendingStressPercentage = (stresses.biegespannung / allowableStresses.allowableBendingStress) * 100;
-  const shearStressPercentage = (stresses.schubspannung / allowableStresses.allowableShearStress) * 100;
+  const bendingStressPercentage = (stresses.biegespannung / allowableStress.allowableBendingStress) * 100;
+  const shearStressPercentage = (stresses.schubspannung / allowableStress.allowableShearStress) * 100;
 
   // Aktualisieren der Progress-Bars
   const bendingProgressBar = $("#biegespannung-progress-bar");
@@ -139,16 +139,16 @@ $("#eurocode-calculator").on("submit", function (event) {
   // Ergebnisse anzeigen (z. B. in einem HTML-Element)
   $("#result-container").html(`
   Biegemoment (M): ${result.biegemoment.toFixed(2)} kNm<br>
-  Schubkraft (V): ${result.schubkraft.toFixed(2)} kN<br>
-  Biegespannung (σ_m): ${stresses.biegespannung.toFixed(2)} kN/m²<br>
+  Schubkraft (V): ${result.schubkraft.toFixed(2)} kN<br><br>
+  Biegespannung (σ_m): ${stresses.biegespannung.toFixed(2)} kN/m² (${bendingStressPercentage.toFixed(2)}%)<br>
   <div class="progress">
-    <div id="biegespannung-progress-bar" class="progress-bar bg-success" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div id="biegespannung-progress-bar" class="progress-bar" role="progressbar" style="width: ${bendingStressPercentage.toFixed(2)}%;" aria-valuenow="${bendingStressPercentage.toFixed(2)}" aria-valuemin="0" aria-valuemax="100"></div>
   </div>
-  Schubspannung (τ): ${stresses.schubspannung.toFixed(2)} kN/m²<br>
+  Schubspannung (τ): ${stresses.schubspannung.toFixed(2)} kN/m² (${shearStressPercentage.toFixed(2)}%)<br>
   <div class="progress">
-    <div id="schubspannung-progress-bar" class="progress-bar bg-success" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div id="schubspannung-progress-bar" class="progress-bar" role="progressbar" style="width: ${shearStressPercentage.toFixed(2)}%;" aria-valuenow="${shearStressPercentage.toFixed(2)}" aria-valuemin="0" aria-valuemax="100"></div>
   </div>
-  `);
+`);
 });
 
 // Funktion zum ändern der Progressbar-Hintergrundfarbe
@@ -157,12 +157,14 @@ function updateProgressBar(progressBar, value) {
   progressBar.attr("aria-valuenow", value);
   progressBar.text(`${value.toFixed(2)}%`);
 
+  const progress = progressBar; // Direkter Zugriff auf das progressBar-Element
+
   if (value > 100) {
-    progressBar.removeClass("bg-success");
-    progressBar.addClass("bg-danger");
+    progress.removeClass("bg-success");
+    progress.addClass("bg-danger");
   } else {
-    progressBar.removeClass("bg-danger");
-    progressBar.addClass("bg-success");
+    progress.removeClass("bg-danger");
+    progress.addClass("bg-success");
   }
 }
 
