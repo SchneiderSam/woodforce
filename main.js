@@ -130,12 +130,6 @@ $("#eurocode-calculator").on("submit", function (event) {
   const bendingStressPercentage = (stresses.biegespannung / allowableStress.allowableBendingStress) * 100;
   const shearStressPercentage = (stresses.schubspannung / allowableStress.allowableShearStress) * 100;
 
-  // Aktualisieren der Progress-Bars
-  const bendingProgressBar = $("#biegespannung-progress-bar");
-  const shearProgressBar = $("#schubspannung-progress-bar");
-  updateProgressBar(bendingProgressBar, bendingStressPercentage);
-  updateProgressBar(shearProgressBar, shearStressPercentage);
-
   // Ergebnisse anzeigen (z. B. in einem HTML-Element)
   $("#result-container").html(`
   Biegemoment (M): ${result.biegemoment.toFixed(2)} kNm<br>
@@ -148,7 +142,13 @@ $("#eurocode-calculator").on("submit", function (event) {
   <div class="progress">
     <div id="schubspannung-progress-bar" class="progress-bar" role="progressbar" style="width: ${shearStressPercentage.toFixed(2)}%;" aria-valuenow="${shearStressPercentage.toFixed(2)}" aria-valuemin="0" aria-valuemax="100"></div>
   </div>
-`);
+  `);
+
+  // Aktualisieren der Progress-Bars nach dem Hinzufügen der ProgressBar-Elemente
+  const bendingProgressBar = $("#biegespannung-progress-bar");
+  const shearProgressBar = $("#schubspannung-progress-bar");
+  updateProgressBar(bendingProgressBar, bendingStressPercentage);
+  updateProgressBar(shearProgressBar, shearStressPercentage);
 });
 
 // Funktion zum ändern der Progressbar-Hintergrundfarbe
