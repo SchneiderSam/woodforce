@@ -11,3 +11,12 @@
       font-size: 3.5rem;
     }
   }
+
+  .wrapper-container {
+    background-color: #f8f9fa;
+  }
+  
+  .wrapper-container .col-md-4 {
+    margin-left: 0;
+  }
+  
