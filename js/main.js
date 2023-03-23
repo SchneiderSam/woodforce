@@ -72,8 +72,9 @@ function calculateStresses(M, V, b, h) {
   // Berechnung der Biegespannung (σ_m)
   const sigma_m = (M * h / 2) / I;
 
-  // Berechnung der Schubspannung (τ)
-  const tau = (V * A) / (b * Math.pow(h, 2));
+  // Berechnung der Schubspannung (τ) 
+  // Formel: τ = V / A
+  const tau = V / A;
 
   // Rückgabe der berechneten Spannungswerte
   return {
@@ -134,11 +135,11 @@ $("#eurocode-calculator").on("submit", function (event) {
   $("#result-container").html(`
   Biegemoment (M): ${result.biegemoment.toFixed(2)} kNm<br>
   Schubkraft (V): ${result.schubkraft.toFixed(2)} kN<br><br>
-  Biegespannung (σ_m): ${stresses.biegespannung.toFixed(2)} kN/m² (${bendingStressPercentage.toFixed(2)}%)<br>
+  Biegespannung (σ_m): ${stresses.biegespannung.toFixed(2)} kN/m²<br>
   <div class="progress">
     <div id="biegespannung-progress-bar" class="progress-bar" role="progressbar" style="width: ${bendingStressPercentage.toFixed(2)}%;" aria-valuenow="${bendingStressPercentage.toFixed(2)}" aria-valuemin="0" aria-valuemax="100"></div>
   </div>
-  Schubspannung (τ): ${stresses.schubspannung.toFixed(2)} kN/m² (${shearStressPercentage.toFixed(2)}%)<br>
+  Schubspannung (τ): ${stresses.schubspannung.toFixed(2)} kN/m²<br>
   <div class="progress">
     <div id="schubspannung-progress-bar" class="progress-bar" role="progressbar" style="width: ${shearStressPercentage.toFixed(2)}%;" aria-valuenow="${shearStressPercentage.toFixed(2)}" aria-valuemin="0" aria-valuemax="100"></div>
   </div>
@@ -167,6 +168,21 @@ function updateProgressBar(progressBar, value) {
     progress.addClass("bg-success");
   }
 }
+
+// Funktion dass die Progressbar nur dann angezeigt wird, wenn eine Berechnung stattfindet
+function showProgressBars(show) {
+  var progressDivs = document.getElementsByClassName("progress");
+  for (var i = 0; i < progressDivs.length; i++) {
+    progressDivs[i].style.display = show ? "block" : "none";
+  }
+}
+
+// Rufen Sie diese Funktion auf, wenn die Berechnung beginnt
+showProgressBars(true);
+
+// Rufen Sie diese Funktion auf, wenn die Berechnung abgeschlossen ist
+showProgressBars(false);
+
 
 // Funktion zum validieren der Trägerdimensionen
 $(document).ready(function() {
